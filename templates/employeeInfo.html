@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Employee Information</title>
+	<style>
+		body {
+			background-color: #D0E8F2;
+			font-family: Arial, sans-serif;
+		}
+		header {
+			background-color: aliceblue;
+            position: sticky;
+            top: 0;
+            z-index: 20;
+		}
+        .header-container {
+            display: flex;
+            width: 95%;
+            margin: auto;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        nav li {
+            list-style: none;
+            display: inline-block;
+        }
+        nav > a > img {
+            transform: scale(1,1) translateY(0px);
+            transition: all 0.2s ease-in;
+        }
+        .nav-text a {
+            color: black;
+            font-size: 20px;
+            font-weight: 555;
+            text-decoration: none;
+            padding: 0px 12px;
+        }
+        .nav-text li {
+            padding: 1px;
+            transform: scale(1,1) translateY(0px);
+            transition: all 0.2s linear;
+        }
+        .nav-text li:hover {
+            padding: 2px;
+            opacity: 0.75;
+            transform: scale(1.1,1.1) translateY(-3px);
+        }
+		form {
+			margin: 0 auto;
+			width: 50%;
+			background-color: white;
+			padding: 20px;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+		}
+		h1 {
+			text-align: center;
+		}
+		label {
+			display: block;
+			margin-bottom: 10px;
+			font-weight: bold;
+		}
+		input[type=text], input[type=email], input[type=tel], input[type=date], select {
+			width: 100%;
+			padding: 10px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			margin-bottom: 20px;
+			box-sizing: border-box;
+			font-size: 16px;
+			font-family: Arial, sans-serif;
+		}
+		button {
+			background-color: #4CAF50;
+			color: white;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			font-size: 16px;
+			font-family: Arial, sans-serif;
+		}
+		button:hover {
+			background-color: #45a049;
+		}
+	</style>
+</head>
+<body>
+    <header>
+        <nav class="header-container">
+            <a href="index.html"><img src="image/home.jpeg" alt="Home" height="50" title="Homepage"></a>
+            <ul class="nav-text">
+                <li><a href="addEmployee.html">ADD EMPLOYEE</a></li>
+                <li><a href="searchEmployee.html">SEARCH EMPLOYEE</a></li>
+                <li><a href="LeaveApplication.html">LEAVE APPLICATION</a></li>
+            </ul>
+        </nav>
+    </header>
+	<form action="index.html">
+		<h1>Employee Information</h1>
+		<label for="employeeid">Employee ID:</label>
+		{{employeeid}} <br><br>
+		<label for="name">Name:</label>
+		{{name}} <br><br>
+		<label for="dob">Date of Birth:</label>
+        {{dob}} <br><br>
+		<label for="gender">Gender:</label>
+		{{gender}} <br><br>
+		<label for="address">Address:</label>
+		{{address}} <br><br>
+		<label for="phone">Phone:</label>
+		{{phone}} <br><br>
+		<label for="email">Email:</label>
+		{{userEmail}} <br><br>
+		<label for="jobstatus">Job Status:</label>
+		{{jobstatus}} <br><br>
+		<label for="hiredate">Hire Date:</label>
+		{{hiredate}} <br><br>
+		<label for="jobtitle">Job Title:</label>
+		{{jobtitle}} <br><br>
+		<label for="department">Department:</label>
+		{{department}} <br><br>
+        <label for="payscale">Pay Scale:</label>
+		{{payroll}} <br><br>
+        <label for="workinghours">Working Hours:</label>
+		{{workingHours}} <br><br>
+        <label for="photo">Photo:</label>
+        {{photo}} <br><br>
+
+        <a href="index.html"><button class="button">Back To Home</button></a>
+	</form>
+</body>
+</html>
