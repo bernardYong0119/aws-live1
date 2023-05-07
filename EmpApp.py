@@ -92,7 +92,7 @@ def AddEmp():
         cursor.close()
 
     print("all modification done...")
-    return render_template('/', employeeid=employeeid, name= name, phone= phone, department= department )
+    return render_template('OutpuPage.html', employeeid=employeeid, name= name, phone= phone, department= department )
 
 
 
