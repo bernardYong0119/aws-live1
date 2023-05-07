@@ -88,25 +88,6 @@ def AddEmp():
     return render_template('OutpuPage.html', employeeid=employeeid, name= name, phone= phone, department= department )
 
 
-@app.route("/searchemp", methods=['GET'])
-def SearchEmp():
-    employeeid = request.form['employeeid']
-    name = request.form['name']
-    dob = request.form['dob']
-    gender = request.form['gender']
-    address = request.form['address']
-    phone = request.form['phone']
-    email = request.form['email']
-    jobstatus = request.form['jobstatus']
-    hiredate = request.form['hiredate']
-    department = request.form['department']
-    payRoll = request.form['payRoll']
-    workinghours = request.form['workinghours']
-    photo = request.files['photo']
-
-    cursor = db_conn.cursor()
-
-
 if __name__ == '_main_':
     app.run(host='0.0.0.0', port=80, debug=True)
     
