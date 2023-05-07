@@ -88,6 +88,6 @@ def AddEmp():
     return render_template('OutpuPage.html', employeeid=employeeid, name= name, phone= phone, department= department )
 
 
-if __name__ == '_main_':
+if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
     
