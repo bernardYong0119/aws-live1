@@ -148,7 +148,7 @@ def searchEmp():
 
             except Exception as e:
                 return str(e)
-            employee_data['photo'] = "https://tanjieyi-bucket.s3.amazonaws.com/mushroom.jpeg"
+            employee_data['photo'] = "https://tanjieyi-bucket.s3.amazonaws.com/emp-id-1001_image_file"
             return render_template('employeeInfo.html',employee_data=employee_data)
         else:
             return "Employee not found"
