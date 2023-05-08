@@ -101,7 +101,7 @@ def AddEmp():
 @app.route('/fetchdata', methods=['POST'])
 def searchEmp():
     employeeid = request.args.get('employeeid')
-    cursor = db_conn.cursor(dictionary=True)
+    cursor = db_conn.cursor()
     cursor.execute("SELECT * FROM assDatabse WHERE employeeid = %s", (employeeid,))
     employee_data = cursor.fetchall()
     if employee_data:
