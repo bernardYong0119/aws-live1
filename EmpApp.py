@@ -172,48 +172,48 @@ def EditEmp():
     photo = request.files['photo']
 
 
-        update_sql = "UPDATE employee \
+    update_sql = "UPDATE employee \
                   SET name = %s, dob = %s, gender = %s, address = %s, phone = %s, email = %s, \
                     jobstatus = %s, job_title = %s, hire_date = %s, department = %s, payRoll = %s, workinghours = %s \
                   WHERE employeeid = %s"
-        cursor = db_conn.cursor()
+    cursor = db_conn.cursor()
 
-        try:
-            cursor.execute(update_sql, (name, dob, gender, address, phone, email, jobstatus, jobtitle, hiredate, department, payRoll, workinghours, employeeid))
-            db_conn.commit()
+    try:
+        cursor.execute(update_sql, (name, dob, gender, address, phone, email, jobstatus, jobtitle, hiredate, department, payRoll, workinghours, employeeid))
+        db_conn.commit()
 
-            # Update image file in S3 #
-            if photo.filename != "":
-                emp_image_file_name_in_s3 = "emp-id-" + str(employeeid) + "_image_file"
-                s3 = boto3.resource('s3')
+        # Update image file in S3 #
+        if photo.filename != "":
+            emp_image_file_name_in_s3 = "emp-id-" + str(employeeid) + "_image_file"
+            s3 = boto3.resource('s3')
 
-                try:
-                    print("Data updated in MySQL RDS... uploading new image to S3...")
-                    s3.Bucket(custombucket).put_object(Key=emp_image_file_name_in_s3, Body=photo)
-                    bucket_location = boto3.client('s3').get_bucket_location(Bucket=custombucket)
-                    s3_location = (bucket_location['LocationConstraint'])
+            try:
+                print("Data updated in MySQL RDS... uploading new image to S3...")
+                s3.Bucket(custombucket).put_object(Key=emp_image_file_name_in_s3, Body=photo)
+                bucket_location = boto3.client('s3').get_bucket_location(Bucket=custombucket)
+                s3_location = (bucket_location['LocationConstraint'])
 
-                    if s3_location is None:
-                        s3_location = ''
-                    else:
-                        s3_location = '-' + s3_location
+                if s3_location is None:
+                    s3_location = ''
+                else:
+                    s3_location = '-' + s3_location
 
-                    object_url = "https://s3{0}.amazonaws.com/{1}/{2}".format(
-                        s3_location,
-                        custombucket,
-                        emp_image_file_name_in_s3)
+                object_url = "https://s3{0}.amazonaws.com/{1}/{2}".format(
+                    s3_location,
+                    custombucket,
+                    emp_image_file_name_in_s3)
 
-                except Exception as e:
-                    return str(e)
+            except Exception as e:
+                return str(e)
         
-            print("all modification done...")
-            return render_template('OutputEdit.html',  name=name)
+        print("all modification done...")
+        return render_template('OutputEdit.html',  name=name)
 
-        except Exception as e:
-            return str(e)
+    except Exception as e:
+        return str(e)
 
-        finally:
-            cursor.close()
+    finally:
+        cursor.close()
 
 
 if __name__ == '__main__':
