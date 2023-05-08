@@ -106,7 +106,7 @@
 	<form action="/editemp" method="POST" enctype="multipart/form-data">
 		<h1>Employee Information Form</h1>
         <p>Employee ID: <span id="employeeid">{{employee_data.employeeid}}</span></p> 
-		<input type="hidden" name="emp_id" value="{{ emp_data.emp_id }}">
+		<input type="hidden" name="emp_id" value="{{ employee_data.employeeid }}">
 		<div>
 			<label for="photo">Profile Picture:</label><br>
 			<img src="{{ employee_data.photo }}" alt="Employee Image" style="max-height: 150px;"><br>
