@@ -99,8 +99,8 @@ def AddEmp():
     return render_template('OutpuPage.html', employeeid=employeeid, name= name, phone= phone, department= department )
 
 @app.route('/fetchdata', methods=['POST'])
-def searchEmp(employeeid):
-    #employeeid = request.args.get('employeeid')
+def searchEmp():
+    employeeid = request.args.get('employeeid')
     cursor = db_conn.cursor(dictionary=True)
     cursor.execute("SELECT * FROM assDatabse WHERE employeeid = %s", (employeeid,))
     employee_data = cursor.fetchall()
