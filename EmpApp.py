@@ -103,7 +103,7 @@ def searchEmp():
     employeeid = request.args.get('employeeid')
     cursor = db_conn.cursor()
     cursor.execute("SELECT * FROM assDatabse WHERE employeeid = %s", (employeeid,))
-    employee_data = cursor.fetchall()
+    employee_data = cursor.fetchone()
     if employee_data:
         emp_data = {}
         emp_data['employeeid'] = employee_data[0]
