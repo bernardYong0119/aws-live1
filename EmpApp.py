@@ -229,7 +229,7 @@ def EditEmp():
 
     update_sql = "UPDATE assDatabase \
                   SET name = %s, dob = %s, gender = %s, address = %s, phone = %s, email = %s, \
-                    jobstatus = %s, job_title = %s, hire_date = %s, department = %s, payRoll = %s, workinghours = %s \
+                    jobstatus = %s, jobtitle = %s, hiredate = %s, department = %s, payRoll = %s, workinghours = %s \
                   WHERE employeeid = %s"
     cursor = db_conn.cursor()
 
