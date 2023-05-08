@@ -145,7 +145,7 @@ def searchEmp():
             except Exception as e:
                 return str(e)
             employee_data['photo'] = object_url
-            return render_template('employeeInfo.html', employee_data=employee_data)
+            return render_template('employeeInfo.html','EditEmployee.html' ,employee_data=employee_data)
         else:
             return "Employee not found"
     except Exception as e:
@@ -171,21 +171,6 @@ def EditEmp():
     workinghours = request.form['workinghours']
     photo = request.files['photo']
 
-
-    employee_data = searchEmp()
-    if employee_data:
-        employee_data['name'] = name
-        employee_data['dob'] = dob
-        employee_data['gender'] = gender
-        employee_data['address'] = address
-        employee_data['phone'] = phone
-        employee_data['email'] = email
-        employee_data['jobstatus'] = jobstatus
-        employee_data['jobtitle'] = jobtitle
-        employee_data['hiredate'] = hiredate
-        employee_data['department'] = department
-        employee_data['payRoll'] = payRoll
-        employee_data['workinghours'] = workinghours
 
         update_sql = "UPDATE employee \
                   SET name = %s, dob = %s, gender = %s, address = %s, phone = %s, email = %s, \
