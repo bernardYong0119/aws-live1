@@ -38,7 +38,7 @@ def searchempPage():
     return render_template('searchEmployee.html')
 
 @app.route("/editempPage", methods=['GET', 'POST'])
-def LeaveAppPage():
+def EditEmpPage():
     return render_template('EditEmployee.html')
 
 @app.route("/LeaveAppPage", methods=['GET', 'POST'])
