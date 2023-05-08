@@ -145,7 +145,7 @@ def searchEmp():
             except Exception as e:
                 return str(e)
             employee_data['photo'] = object_url
-            return render_template('employeeInfo.html','EditEmployee.html' ,employee_data=employee_data)
+            return render_template('employeeInfo.html', employee_data=employee_data), render_template('EditEmployee.html', employee_data=employee_data)
         else:
             return "Employee not found"
     except Exception as e:
