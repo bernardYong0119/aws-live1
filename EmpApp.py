@@ -100,7 +100,7 @@ def AddEmp():
 
 @app.route('/fetchdata', methods=['POST'])
 def searchEmp():
-    employeeid = request.args.get('employeeid')
+    employeeid = request.form.get('employeeid')
     cursor = db_conn.cursor()
     try:
         cursor.execute("SELECT * FROM assDatabase WHERE employeeid = %s", (employeeid,))
