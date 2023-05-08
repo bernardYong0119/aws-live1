@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsontify
+from flask import Flask, render_template, request, jsonify
 from pymysql import connections
 import os
 import boto3
